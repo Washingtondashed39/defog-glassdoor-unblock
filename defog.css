@@ -1,0 +1,30 @@
+/* Allow scrolling */
+body.main{
+    overflow: auto !important;
+    position: unset !important
+}
+
+/* Remove Login Banner */
+#HardsellOverlay {
+    display: None !important;
+}
+
+#unified-user-auth {
+    display: None !important;
+}
+
+/* Remove "Continue Reading" */
+.v2__EIReviewDetailsV2__continueReading.v2__EIReviewDetailsV2__clickable.v2__EIReviewDetailsV2__newUiCta.mb{
+    display: None !important;
+}
+
+.v2__EIReviewDetailsV2__isCollapsed {
+    max-height: none !important;
+    overflow: auto !important;
+    text-overflow: unset !important;
+    position: relative !important;
+}
+
+.v2__EIReviewDetailsV2__isCollapsed:after {
+    content: none !important;
+}

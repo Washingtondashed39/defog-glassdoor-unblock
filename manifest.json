@@ -1,0 +1,26 @@
+{
+  "name": "Defog - Glassdoor Unblock",
+  "description": "Remove all distraction from Glassdoor sites",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "glassdoor-unblock.png"
+  },
+  "content_scripts": [
+    {
+      "css": [
+        "defog.css"
+      ],
+      "js": [
+        "defog.js"
+      ],
+      "matches": [
+        "https://www.glassdoor.com/*",
+        "https://www.glassdoor.it/*"
+      ],
+      "runAt": "document_end",
+      "all_frames": true
+    }
+  ]
+}
