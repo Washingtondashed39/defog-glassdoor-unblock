@@ -20,6 +20,8 @@ Specifically, it:
 
 The toolbar popup gives you a master on/off switch **per site** (so you can pause it on a specific Glassdoor domain without affecting the others) and a live counter of how many elements it has hidden on the current page.
 
+![Before and after Defog is applied to a Glassdoor company review page](before-after.jpg)
+
 ## Supported sites
 
 Defog works on the localized Glassdoor site for each of these countries: US, Italy, UK, Canada, Australia, Ireland, Germany, France, Netherlands, Switzerland, Austria, Belgium, Spain, India, Hong Kong, Singapore, New Zealand, Mexico and Brazil.
