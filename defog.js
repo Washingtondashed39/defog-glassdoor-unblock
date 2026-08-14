@@ -3,8 +3,20 @@ const TARGETS = {
   stripClass: ['BlurredContent','ReviewText_isCollapsed', 'EmployerHero_employerHeroImage', 'TruncatedText_truncate'],
 };
 
+const STORAGE_KEY = 'disabledHosts';
+const hostname = location.hostname;
+
+let enabled = true;
+let total = 0;
+let scheduled = false;
+
 function removeElements(className) {
-  document.querySelectorAll(`[class^="${className}"]`).forEach((el) => el.remove());
+  let removed = 0;
+  document.querySelectorAll(`[class^="${className}"]`).forEach((el) => {
+    el.remove();
+    removed++;
+  });
+  return removed;
 }
 
 function stripClass(className) {
@@ -14,14 +26,17 @@ function stripClass(className) {
   });
 }
 
-function cleanup() {
-  observer.disconnect(); // avoid reacting to our own DOM changes
-  TARGETS.remove.forEach(removeElements);
-  TARGETS.stripClass.forEach(stripClass);
-  observer.observe(document.body, observerConfig);
+function reportIconState() {
+  chrome.runtime.sendMessage({ type: 'ICON_STATE', enabled });
 }
 
-let scheduled = false;
+function cleanup() {
+  observer.disconnect(); // avoid reacting to our own DOM changes
+  total += TARGETS.remove.reduce((sum, className) => sum + removeElements(className), 0);
+  TARGETS.stripClass.forEach(stripClass);
+  if (enabled) observer.observe(document.body, observerConfig);
+}
+
 function scheduleCleanup() {
   if (scheduled) return;
   scheduled = true;
@@ -40,5 +55,40 @@ const observerConfig = {
 
 const observer = new MutationObserver(() => scheduleCleanup());
 
-// Run once for content already on the page, then start observing.
-cleanup();
+function setEnabled(next, sendResponse) {
+  enabled = next;
+  chrome.storage.local.get(STORAGE_KEY, (result) => {
+    const disabledHosts = result[STORAGE_KEY] || [];
+    const updated = enabled
+      ? disabledHosts.filter((h) => h !== hostname)
+      : disabledHosts.includes(hostname) ? disabledHosts : [...disabledHosts, hostname];
+    chrome.storage.local.set({ [STORAGE_KEY]: updated }, () => {
+      if (enabled) {
+        cleanup();
+      } else {
+        observer.disconnect();
+      }
+      reportIconState();
+      sendResponse({ enabled, total });
+    });
+  });
+}
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message?.type === 'GET_STATE') {
+    sendResponse({ enabled, total });
+    return;
+  }
+
+  if (message?.type === 'SET_ENABLED') {
+    setEnabled(message.enabled, sendResponse);
+    return true; // keep the message channel open for the async storage write
+  }
+});
+
+chrome.storage.local.get(STORAGE_KEY, (result) => {
+  const disabledHosts = result[STORAGE_KEY] || [];
+  enabled = !disabledHosts.includes(hostname);
+  if (enabled) cleanup();
+  reportIconState();
+});

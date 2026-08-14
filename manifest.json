@@ -3,9 +3,27 @@
   "description": "Remove all distraction from Glassdoor sites",
   "version": "1.0",
   "manifest_version": 3,
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "index.html",
-    "default_icon": "glassdoor-unblock.png"
+    "default_icon": {
+      "16": "icons/icon16-inactive.png",
+      "32": "icons/icon32-inactive.png",
+      "48": "icons/icon48-inactive.png",
+      "128": "icons/icon128-inactive.png"
+    }
   },
   "content_scripts": [
     {
@@ -17,7 +35,24 @@
       ],
       "matches": [
         "https://www.glassdoor.com/*",
-        "https://www.glassdoor.it/*"
+        "https://www.glassdoor.it/*",
+        "https://www.glassdoor.co.uk/*",
+        "https://www.glassdoor.ca/*",
+        "https://www.glassdoor.com.au/*",
+        "https://www.glassdoor.ie/*",
+        "https://www.glassdoor.de/*",
+        "https://www.glassdoor.fr/*",
+        "https://www.glassdoor.nl/*",
+        "https://www.glassdoor.ch/*",
+        "https://www.glassdoor.at/*",
+        "https://www.glassdoor.be/*",
+        "https://www.glassdoor.es/*",
+        "https://www.glassdoor.co.in/*",
+        "https://www.glassdoor.com.hk/*",
+        "https://www.glassdoor.sg/*",
+        "https://www.glassdoor.co.nz/*",
+        "https://www.glassdoor.com.mx/*",
+        "https://www.glassdoor.com.br/*"
       ],
       "runAt": "document_end",
       "all_frames": true

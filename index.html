@@ -1,7 +1,50 @@
-<html>
-  <body>
-    <h1>Glassdor Unblock</h1>
-    <script src="index.js"></script>
-    <button id="disable-btn" click="javascript:toggle()">Disable</button>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Defog</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="popup">
+  <header class="header">
+    <img class="logo" src="icons/icon48.png" alt="">
+    <div class="identity">
+      <div class="name">Defog</div>
+      <div class="host" id="host"></div>
+    </div>
+    <span class="status-pill" id="status-pill"></span>
+  </header>
+
+  <p class="unsupported" id="unsupported" hidden>
+    Defog only runs on glassdoor.* sites. If there is
+    an errore, please <a target="_blank"
+                         href="https://github.com/lprevidente/defog-glassdoor-unblock/issues">report
+    it</a>.
+  </p>
+
+  <div id="controls">
+    <div class="toggle-row">
+      <div class="toggle-text">
+        <div class="toggle-title">Blocking on this site</div>
+        <div class="toggle-subtitle" id="subtitle"></div>
+      </div>
+      <button class="switch" id="toggle" type="button" role="switch" aria-checked="false">
+        <span class="knob"></span>
+      </button>
+    </div>
+
+    <div class="counter-row">
+      <span class="counter-value" id="counter-value">0</span>
+      <span class="counter-label">hidden on this page</span>
+    </div>
+  </div>
+
+  <p class="feedback">
+    Something wrong? <a target="_blank"
+                        href="https://github.com/lprevidente/defog-glassdoor-unblock/issues">Report
+    it</a>.
+  </p>
+</div>
+<script src="index.js"></script>
+</body>
 </html>
